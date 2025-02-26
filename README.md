@@ -67,7 +67,7 @@ Follow these steps to set up and run the project locally:
 ### 2. Popular Career Articles
 ![Career Articles Screenshot](screenshots/populararticals.png)
 
-### 3. AI Chatbot
+### 3. OpenAI Integrated Chatbot
 ![Chatbot Screenshot](screenshots/chatBot.png)
 
 ### 4. Job Recommendations
