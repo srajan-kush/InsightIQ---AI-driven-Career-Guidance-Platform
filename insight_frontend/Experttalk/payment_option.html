@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay Integration</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+  }
+  .option {
+    width: calc(50% - 20px);
+    padding: 20px;
+    background-color: #fff; /* Updated background color to white */
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    color: #444; /* Updated text color to dark gray */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Added box shadow */
+  }
+  .option:hover {
+    background-color: #f5f5f5; /* Light gray background color on hover */
+  }
+  .option:hover .payment-button {
+    display: block;
+  }
+  .payment-button {
+    display: none;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .payment-button:hover {
+    background-color: #0056b3;
+  }
+    </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <!-- <button id="payButton">Pay with Razorpay</button> -->
+
+    <div class="container">
+      <div class="option">
+        <h2>Expert Talk - Rs. 99</h2>
+        <p>Duration: 2 hours</p>
+        <button class="payment-button" onclick="getpayment(99,'firstcouse')">Pay Rs. 99</button>
+      </div>
+      <div class="option">
+        <h2>Expert Talk from Industry - Rs. 199</h2>
+        <p>Duration: 2 hours within a week</p>
+        <button class="payment-button" onclick="getpayment(199,'firstcouse')">Pay Rs. 199</button>
+        
+      </div>
+    </div>
+
+    <script>        
+        // document.getElementById('payButton').onclick = getpayment(99,'payment');
+        function getpayment(amount,description) {
+                var razorpayOptions = {
+                key: 'rzp_test_rWMas1YBD4HNWG',
+                amount: amount*100,
+                currency: 'INR',
+                name: 'Insight IQ',
+                description: description,
+                image: 'img/logopng - Copy.png',
+                handler: function(response) {
+                    alert('Payment ID: ' + response.razorpay_payment_id);
+                }
+            };
+
+                var rzp = new Razorpay(razorpayOptions);
+                rzp.open();
+        };
+    </script>
+</body>
+</html>
+
+
+

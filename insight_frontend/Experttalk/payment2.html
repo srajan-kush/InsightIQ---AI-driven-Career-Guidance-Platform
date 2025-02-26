@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Options</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  h1, h2, p {
+    text-align: center;
+  }
+  .payment-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Choose Payment Method</h1>
+  <div class="payment-options">
+    <button onclick="showPaymentForm('Google Pay')"><a href="gpay.html" style="text-decoration: none;color: black;">Google Pay</a></button>
+    <button onclick="showPaymentForm('Paytm')"><a href="paytm.html" style="text-decoration: none; color: black;">Paytm</a></button>
+    <button onclick="showCardPaymentForm()"><a href="card_payment.html" style="text-decoration: none; color: black;">Credit Card/Debit Card</a></button>
+  </div>
+</div>
+
+<div class="container" id="paymentForm" style="display: none;">
+  <h2>Payment Details</h2>
+  <form id="paymentDetailsForm">
+    <input type="hidden" id="paymentMethod" name="paymentMethod">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Pay Now</button>
+  </form>
+</div>
+
+<script>
+  function showPaymentForm(paymentMethod) {
+    document.getElementById('paymentForm').style.display = 'block';
+    document.getElementById('paymentMethod').value = paymentMethod;
+  }
+
+  function showCardPaymentForm() {
+    alert("Redirecting to Credit/Debit Card payment form...");
+    // Add logic to redirect to a card payment form page
+  }
+
+  document.getElementById('paymentDetailsForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    var paymentMethod = formData.get('paymentMethod');
+    var name = formData.get('name');
+    var email = formData.get('email');
+    // Add logic to execute payment based on the payment method and form data
+    alert('Payment executed successfully via ' + paymentMethod + '. Thank you, ' + name + '!');
+    // Redirect to a thank you page or perform further actions
+  });
+</script>
+
+</body>
+</html>

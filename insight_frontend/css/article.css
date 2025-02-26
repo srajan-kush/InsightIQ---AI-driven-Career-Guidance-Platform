@@ -1,0 +1,61 @@
+body {
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100%;
+    color: white;
+}
+.search-container,h1,h2,h3{
+    text-align: center;
+}
+.search-container input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.search-container input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.search-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+strong{
+    white-space: pre-line;
+    font-size: large;
+    color:rgb(244, 6, 6);
+}
+
+
+
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 10px;
+}
+
+.containt-display{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 25vh;
+}
+
+
+#artice_box {
+    text-align: justify;
+    padding: 20px;
+    margin: 20px;
+}
